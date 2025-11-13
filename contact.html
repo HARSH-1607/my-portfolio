@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Harsh</title>
+  <meta name="description" content="Contact Harsh">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body class="page-contact">
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Harsh<span class="blink">_</span></a>
+      <nav class="nav"></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="snow-background" aria-hidden="true">
+      <div class="snow-layer-1"></div>
+      <div class="snow-layer-2"></div>
+      <div class="snow-layer-3"></div>
+    </div>
+
+    <section class="section">
+      <div class="container grid grid--2">
+      
+        <div class="content-panel">
+          <h1 class="section__title">Contact</h1>
+          <p>Have a project in mind? Send a transmission.</p>
+          <ul class="list" style="font-size: 0.8rem; margin-top: 1rem;">
+            <li style="margin-bottom: 0.75rem;">
+              Email: <a href="mailto:harshgautam1607@gmail.com">harshgautam1607@gmail.com</a>
+            </li>
+            <li style="margin-bottom: 0.75rem;">
+              LinkedIn: <a href="https://www.linkedin.com/in/harsh-gautam-70b1a6256" target="_blank" rel="noreferrer noopener">linkedin.com/in/harsh-gautam</a>
+            </li>
+            <li style="margin-bottom: 0.75rem;">
+              GitHub: <a href="https://github.com/HARSH-1607" target="_blank" rel="noreferrer noopener">github.com/HARSH-1607</a>
+            </li>
+             <li style="margin-bottom: 0.75rem;">
+              Phone: <a href="tel:+917425987950">+91-7425987950</a>
+            </li>
+             <li style="margin-bottom: 0.75rem;">
+              Location: Jaipur, Rajasthan
+            </li>
+          </ul>
+          <p style="margin-top:1.5rem"><a class="btn btn--ghost" href="index.html">Back to Start</a></p>
+        </div>
+        
+        <form name="contact" netlify class="form content-panel">
+          <div class="form__row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+          <div class="form__row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="form__row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Send</button>
+        </form>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Harsh. Built with love.</p>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
