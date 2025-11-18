@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Tree</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    /* --- RPG THEME --- */
+    body.rpg-menu {
+      background-color: #2a0050; 
+      background-image: 
+        url('Images/background_layer_3.png'),
+        url('Images/background_layer_2.png'),
+        url('Images/background_layer_1.png');
+      background-position: bottom center;
+      background-size: auto 100%;
+      background-repeat: repeat-x;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+      color: #3e2723;
+    }
+
+    .quest-log {
+      background: #e3ce99; 
+      border: 8px solid #5d4037; 
+      box-shadow: inset 0 0 0 4px #8d6e63, 0 10px 20px rgba(0,0,0,0.8);
+      width: min(800px, 95%);
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      image-rendering: pixelated;
+      z-index: 10;
+    }
+
+    .quest-header {
+      background: #5d4037;
+      color: #ffecb3;
+      padding: 1.5rem;
+      text-align: center;
+      border-bottom: 4px solid #3e2723;
+    }
+    
+    .quest-header h1 {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0 #2d1e1b;
+      margin: 0;
+    }
+
+    /* Skill Grid Layout */
+    .skill-container {
+      padding: 1.5rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .skill-category h2 {
+      font-size: 1rem;
+      color: #5d4037;
+      border-bottom: 2px dashed #8d6e63;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .skill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    /* Individual Skill Badge */
+    .skill-badge {
+      background: #5d4037;
+      color: #ffecb3;
+      border: 2px solid #3e2723;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 0 #3e2723;
+      transition: transform 0.1s;
+      cursor: default;
+    }
+    
+    .skill-badge:hover {
+      transform: translateY(-2px);
+      background: #6d4c41;
+    }
+
+    /* Different colors for categories */
+    .tech-badge { background: #1a237e; border-color: #0d47a1; box-shadow: 0 4px 0 #002171; }
+    .tech-badge:hover { background: #283593; }
+
+    .design-badge { background: #b71c1c; border-color: #b71c1c; box-shadow: 0 4px 0 #7f0000; }
+    .design-badge:hover { background: #c62828; }
+
+    .close-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: #d32f2f;
+        border: 3px solid #fff;
+        color: #fff;
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 0 #9a0007;
+        text-decoration: none;
+        z-index: 20;
+    }
+    
+    .close-btn:hover {
+        transform: scale(1.1);
+        background: #f44336;
+    }
+    
+    .quest-log::-webkit-scrollbar { width: 12px; }
+    .quest-log::-webkit-scrollbar-track { background: #d7ccc8; }
+    .quest-log::-webkit-scrollbar-thumb { background: #5d4037; border: 2px solid #d7ccc8; }
+
+  </style>
+</head>
+<body class="rpg-menu">
+
+  <div class="quest-log">
+    <a href="game.html?spawn=skills" class="close-btn" title="Return to World">X</a>
+    
+    <div class="quest-header">
+      <h1>Abilities & Skills</h1>
+    </div>
+
+    <div class="skill-container">
+      
+      <div class="skill-category">
+        <h2>Game Development & Design</h2>
+        <div class="skill-grid">
+          <div class="skill-badge design-badge">Unity (C#)</div>
+          <div class="skill-badge design-badge">Unreal Engine</div>
+          <div class="skill-badge design-badge">Gameplay Mechanics</div>
+          <div class="skill-badge design-badge">Level Design</div>
+          <div class="skill-badge design-badge">Game Feel</div>
+          <div class="skill-badge design-badge">Player Experience</div>
+          <div class="skill-badge design-badge">Prototyping</div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h2>Programming & Technical</h2>
+        <div class="skill-grid">
+          <div class="skill-badge tech-badge">C#</div>
+          <div class="skill-badge tech-badge">C++</div>
+          <div class="skill-badge tech-badge">JavaScript</div>
+          <div class="skill-badge tech-badge">Python</div>
+          <div class="skill-badge tech-badge">HTML5 / CSS3</div>
+          <div class="skill-badge tech-badge">SQL</div>
+          <div class="skill-badge tech-badge">OOP Patterns</div>
+          <div class="skill-badge tech-badge">AI Behavior</div>
+          <div class="skill-badge tech-badge">Git / GitHub</div>
+          <div class="skill-badge tech-badge">Optimization</div>
+          <div class="skill-badge tech-badge">Debugging</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

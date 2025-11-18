@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh – Portfolio</title>
+  <meta name="description" content="Portfolio Start Menu">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    /* Tweaks to re-use console.html layout styles */
+    .start-screen { min-height: 100vh; display: grid; place-items: center; padding: 0; position: relative; overflow: hidden; }
+    .retro-stage { position: absolute; inset: 0; z-index: 0; }
+    
+    .start-wrapper { position: relative; z-index: 10; width: min(980px, 94%); display: grid; gap: 1rem; padding: 1.5rem 0 3rem; }
+    .start-banner { background: var(--card); border: 6px solid var(--accent-3); padding: 1rem; text-align: center; box-shadow: 0 10px 0 var(--shadow); }
+    .start-banner h1 { font-size: clamp(1.8rem, 6vw, 3rem); color: #ffd87a; text-transform: uppercase; text-shadow: 0 4px 0 #7a6a2b; }
+    .start-banner p { margin-top: 0.5rem; color: #9ed0da; font-size: 0.8rem; }
+
+    .start-grid { display: grid; grid-template-columns: 260px 1fr; gap: 1rem; }
+    @media (max-width: 820px) { .start-grid { grid-template-columns: 1fr; } }
+    
+    /* New menu styles for this page */
+    .mode-select-panel { background: var(--card); border: 4px dashed var(--accent-3); padding: 0.8rem; }
+    .mode-select-panel p { color: var(--muted); font-size: 0.75rem; line-height: 1.6; margin-bottom: 1rem; }
+    .mode-select-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    
+    /* Re-using menu-btn styles for new buttons */
+    .menu-btn { display: block; width: 100%; text-align: center; text-decoration: none; color: #001b16; border: 4px solid; padding: 1.2rem 0.6rem; box-shadow: 0 6px 0 #082a22; font-size: 1rem; }
+    .menu-btn--green { background: #8af5a6; border-color: #8af5a6; box-shadow: 0 6px 0 #082a22; }
+    .menu-btn--grey { background: #555; border-color: #333; color: #999; text-shadow: 0 2px 0 #222; box-shadow: 0 6px 0 #222; cursor: not-allowed; }
+    .menu-btn--grey:hover { transform: none; box-shadow: 0 6px 0 #222; }
+    
+  </style>
+</head>
+<body class="index-page"> <div class="crt-overlay" aria-hidden="true"></div>
+  
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">HARSH<span class="blink">_</span></a>
+      <nav class="nav"></nav>
+    </div>
+  </header>
+
+  <main class="start-screen">
+    <div class="retro-stage" aria-hidden="true">
+      <div class="index-background">
+        <div class="pixel-stars-1"></div>
+        <div class="pixel-stars-2"></div>
+        <div class="index-cloud-1"></div>
+        <div class="index-cloud-2"></div>
+      </div>
+    </div>
+
+    <div class="start-wrapper">
+      <div class="start-banner">
+        <h1>WELCOME</h1>
+        <p>Portfolio Experience Selector</p>
+      </div>
+
+      <div class="start-grid">
+        <div class="start-grid__left-col">
+          <aside class="guide-panel">
+            <h3>Guide</h3>
+            <p>Welcome to my interactive portfolio.</p>
+            <p>Please select an experience to begin.</p>
+            <p style="margin-top: 1rem;"><strong>Standard Mode:</strong><br>The full retro-console portfolio.</p>
+            <p style="margin-top: 1rem;"><strong>Game Mode:</strong><br>Explore the world and find the chests!</p>
+          </aside>
+        </div>
+        
+        <section class="mode-select-panel">
+          <p>Select your experience:</p>
+          <div class="mode-select-grid">
+            <a href="console.html" class="btn menu-btn menu-btn--green">
+              <span>Standard Mode</span>
+            </a>
+            <a href="game.html" class="btn menu-btn menu-btn--yellow">
+              <span>Game Mode ⚔️</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Harsh. Built with love.</p>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

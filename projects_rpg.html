@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quest Log: Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    /* --- RPG THEME OVERRIDES --- */
+    body.rpg-menu {
+      background-color: #2a0050; 
+      background-image: 
+        url('Images/background_layer_3.png'),
+        url('Images/background_layer_2.png'),
+        url('Images/background_layer_1.png');
+      background-position: bottom center;
+      background-size: auto 100%;
+      background-repeat: repeat-x;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+      color: #3e2723;
+    }
+
+    .quest-log {
+      background: #e3ce99; 
+      border: 8px solid #5d4037; 
+      box-shadow: inset 0 0 0 4px #8d6e63, 0 10px 20px rgba(0,0,0,0.8);
+      width: min(800px, 95%);
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      image-rendering: pixelated;
+      z-index: 10;
+    }
+
+    .quest-header {
+      background: #5d4037;
+      color: #ffecb3;
+      padding: 1.5rem;
+      text-align: center;
+      border-bottom: 4px solid #3e2723;
+    }
+    
+    .quest-header h1 {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0 #2d1e1b;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .quest-list {
+      padding: 1.5rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .quest-item {
+      background: rgba(93, 64, 55, 0.05);
+      border: 3px dashed #8d6e63;
+      padding: 1rem;
+      transition: all 0.2s ease;
+      display: grid;
+      gap: 0.8rem;
+    }
+    
+    .quest-item:hover {
+      transform: translateY(-3px);
+      background: rgba(93, 64, 55, 0.15);
+      border-style: solid;
+    }
+
+    .quest-title {
+      font-size: 1rem;
+      color: #3e2723;
+      line-height: 1.4;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .quest-title::before {
+      content: '⚔️'; 
+      font-size: 0.8rem;
+      margin-right: 0.6rem;
+      color: #d32f2f;
+    }
+
+    .quest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .rpg-tag {
+      background: #5d4037;
+      color: #ffecb3;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.55rem;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+    }
+
+    .quest-desc {
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: #4e342e;
+    }
+
+    /* --- NEW GALLERY GRID STYLE --- */
+    .quest-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .quest-thumb {
+      width: 100%;
+      height: 160px; /* Reduced height slightly to fit 2 rows better */
+      object-fit: cover;
+      object-position: center;
+      border: 4px solid #5d4037;
+      display: block;
+      image-rendering: auto; 
+    }
+
+    .quest-actions {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .rpg-btn {
+      display: inline-block;
+      background: #d32f2f; 
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.7rem;
+      border: 3px solid #b71c1c;
+      box-shadow: 0 4px 0 #8e1616;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    
+    .rpg-btn:hover {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #8e1616;
+    }
+
+    .rpg-btn:active {
+      transform: translateY(6px);
+      box-shadow: none;
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: #d32f2f;
+        border: 3px solid #fff;
+        color: #fff;
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 0 #9a0007;
+        text-decoration: none;
+        z-index: 20;
+    }
+    
+    .close-btn:hover {
+        transform: scale(1.1);
+        background: #f44336;
+    }
+    
+    .quest-log::-webkit-scrollbar { width: 12px; }
+    .quest-log::-webkit-scrollbar-track { background: #d7ccc8; }
+    .quest-log::-webkit-scrollbar-thumb { background: #5d4037; border: 2px solid #d7ccc8; }
+
+    @media (max-width: 600px) {
+      .quest-gallery { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body class="rpg-menu">
+
+  <div class="quest-log">
+    <a href="game.html?spawn=projects" class="close-btn" title="Return to World">X</a>
+    
+    <div class="quest-header">
+      <h1>Quest Log: Projects</h1>
+    </div>
+
+    <div class="quest-list">
+      
+      <article class="quest-item">
+        <div class="quest-gallery">
+          <img src="Images/project-guns.png" alt="FPS Game Screenshot 1" class="quest-thumb">
+          <img src="Images/project-guns-2.png" alt="FPS Game Screenshot 2" class="quest-thumb">
+        </div>
+        
+        <div class="quest-title">Unity FPS — Guns (Prototype)</div>
+        <div class="quest-tags">
+          <span class="rpg-tag">Unity (C#)</span>
+          <span class="rpg-tag">ShaderLab</span>
+        </div>
+        <p class="quest-desc">A first-person shooter prototype demonstrating custom weapon mechanics and immersive environment design.</p>
+        <div class="quest-actions">
+          <a href="https://github.com/HARSH-1607/Guns" target="_blank" class="rpg-btn">Inspect Code</a>
+        </div>
+      </article>
+
+      <article class="quest-item">
+        <div class="quest-gallery">
+          <img src="Images/project-expense-tracker.png" alt="Expense Tracker Dashboard" class="quest-thumb">
+          <img src="Images/project-expense-tracker-2.png" alt="Expense Tracker UI" class="quest-thumb">
+        </div>
+
+        <div class="quest-title">Expense Tracker</div>
+        <div class="quest-tags">
+          <span class="rpg-tag">React 18</span>
+          <span class="rpg-tag">TypeScript</span>
+          <span class="rpg-tag">MUI</span>
+        </div>
+        <p class="quest-desc">Modern personal finance dashboard with charts, savings goals, and dark mode.</p>
+        <div class="quest-actions">
+          <a href="https://github.com/HARSH-1607/expense_tracker" target="_blank" class="rpg-btn">View Demo</a>
+        </div>
+      </article>
+
+      <article class="quest-item">
+        <div class="quest-gallery">
+          <img src="Images/project-vllm-chat.png" alt="AI Chat Interface" class="quest-thumb">
+          <img src="Images/project-vllm-chat-2.png" alt="AI Chat Response" class="quest-thumb">
+        </div>
+        
+        <div class="quest-title">Local vLLM Chat App</div>
+        <div class="quest-tags">
+          <span class="rpg-tag">Python</span>
+          <span class="rpg-tag">FastAPI</span>
+          <span class="rpg-tag">Docker</span>
+        </div>
+        <p class="quest-desc">Self-hosted ChatGPT-like interface running large language models on your local GPU.</p>
+        <div class="quest-actions">
+          <a href="https://github.com/HARSH-1607/vllm-chat-app" target="_blank" class="rpg-btn">Deploy</a>
+        </div>
+      </article>
+
+      <article class="quest-item">
+        <div class="quest-gallery">
+           <img src="Images/project-ludo.png" alt="Ludo Board" class="quest-thumb">
+           <img src="Images/project-ludo-2.png" alt="Ludo Gameplay" class="quest-thumb">
+        </div>
+
+        <div class="quest-title">Simplified 2-Player Ludo</div>
+        <div class="quest-tags">
+          <span class="rpg-tag">Unity</span>
+          <span class="rpg-tag">C#</span>
+        </div>
+        <p class="quest-desc">Polished hot-seat board game with animated dice and capture mechanics.</p>
+        <div class="quest-actions">
+          <a href="https://github.com/HARSH-1607/Ludo-Game-Unity" target="_blank" class="rpg-btn">Play Game</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+</body>
+</html>
