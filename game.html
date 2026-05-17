@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh's Realm - Game Mode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    /* Game Specific Styles */
+    body {
+      overflow: hidden; /* No scrollbars for the game window */
+      background: #2a0050;
+      touch-action: none; /* Prevent zoom/scroll gestures on mobile */
+    }
+    #gameCanvas {
+      display: block;
+      background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 100%); /* Day sky placeholder */
+    }
+    #ui-layer {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 14px;
+      text-shadow: 2px 2px 0 #000;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .interaction-prompt {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      border: 2px solid #ffd400;
+      color: #ffd400;
+      padding: 10px 20px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 12px;
+      display: none; /* Hidden by default */
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  
+  <canvas id="gameCanvas"></canvas>
+  
+  <div id="ui-layer">
+    <p>Controls: A/D or Arrows to Move | Space to Jump</p>
+    <p style="margin-top: 10px; font-size: 10px; color: #ffd400;">Loading Assets...</p>
+  </div>
+
+  <div id="prompt" class="interaction-prompt">
+    PRESS 'E' TO ENTER
+  </div>
+
+  <div id="mobile-controls">
+    <div class="d-pad">
+      <button id="btn-left">⬅</button>
+      <button id="btn-right">➡</button>
+    </div>
+    <div class="action-pad">
+      <button id="btn-jump">JUMP</button>
+      <button id="btn-interact">E</button>
+    </div>
+  </div>
+
+  <script src="scripts/game.js"></script>
+</body>
+</html>
