@@ -29,6 +29,11 @@
       pointer-events: none;
       z-index: 10;
     }
+    iframe[src^="https://nova-web-guide-demo.onrender.com/embed/frame.html"] {
+      top: 8px !important;
+      bottom: auto !important;
+      max-height: calc(100dvh - 140px) !important;
+    }
     .interaction-prompt {
       position: absolute;
       bottom: 20%;
@@ -70,5 +75,7 @@
   </div>
 
   <script src="scripts/game.js"></script>
+  <script src="scripts/dork-config.js"></script>
+  <script src="https://nova-web-guide-demo.onrender.com/embed/dork-embed.js"></script>
 </body>
 </html>
